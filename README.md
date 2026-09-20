@@ -24,6 +24,29 @@ It is deliberately **just markdown**. No runtime, no API keys, no framework to m
 
 ---
 
+## Installation — the 60-second version
+
+**Paste one block. Upload nothing.**
+
+Open [`00-core/karvis-bootstrap.md`](./00-core/karvis-bootstrap.md), copy the fenced block, and paste it into:
+
+| Platform | Where |
+|---|---|
+| **ChatGPT** | Projects → your project → ⋯ → Project settings → Instructions |
+| **Claude** | Projects → your project → Custom instructions |
+| **Grok** | Settings → Custom Instructions (3,400 chars — fits the cap) |
+| **Claude Code / Cursor** | `CLAUDE.md` or `.cursorrules` |
+
+That is the whole install. The block contains a routing table pointing at
+`bundles/` in this repo, so the model classifies your request, fetches the
+matching sector itself, and never asks you which module to load. Edit a module,
+`git push`, and every platform picks up the change on its next fetch.
+
+Prefer uploads (air-gapped, or browsing disabled)? See
+[Manual upload](#manual-upload-alternative) below.
+
+---
+
 ## Installation
 
 ### 1. Get the files
@@ -58,7 +81,14 @@ karvis/
 └── 80-meta/                  # prompt patterns, model routing, rubrics, agents
 ```
 
-### 3. Install into your model
+### 3. Install into your model (manual upload alternative)
+<a name="manual-upload-alternative"></a>
+
+Only needed if the model cannot browse. Upload `bundles/*.md` (9 files), never
+the raw 46-file tree — ChatGPT Projects cap at 5 files on Free, 25 on Plus/Go,
+and 40 on Pro/Team/Business. Claude takes `bundles/karvis-all-in-one.md` in one
+upload (~14k tokens).
+
 
 <details open>
 <summary><strong>ChatGPT</strong></summary>
