@@ -1,3 +1,6 @@
 .DS_Store
 *.local.md
+*.private.md
+private/
+context-packs/
 .env
